@@ -7,20 +7,24 @@
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million,
 # find the sum of the even-valued terms.
 
-num1 = 1
-num2 = 2
-num3 = 0
-total = 0
-print("1\n2")
+from timer import timed
 
-while True:
-	num3 = num1 + num2
-	if num3 > 4000000:
-		break
-	print(num3)
-	if num3 % 2 == 0:
-		total += num3
-	num1 = num2
-	num2 = num3
 
-print("sum: " + str(total) + " +2 = " + str(total + 2))
+@timed
+def problem_002() -> int:
+    limit = 4000000
+    a, b, c = 1, 1, 1
+    total = 0
+    while True:
+        c = a + b
+        a = b
+        b = c
+        if c > limit:
+            break
+        if c % 2 == 0:
+            total += c
+    return total
+
+
+if __name__ == '__main__':
+    print(f"answer: {problem_002()}")
