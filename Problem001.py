@@ -8,13 +8,13 @@ from timer import timed
 
 
 @timed
-def problem_001():
+def problem_001() -> int:
     total = 0
     for i in range(1000):
         if i % 3 == 0 or i % 5 == 0:
             total += i
-    print(f"answer: {total}")
+    return total
 
 
 if __name__ == "__main__":
-    problem_001()
+    print(f"answer: {problem_001()}")
