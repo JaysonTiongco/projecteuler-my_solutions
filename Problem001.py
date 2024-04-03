@@ -4,10 +4,10 @@
 # The sum of these multiples is 23.
 # Find the sum of all the multiples of 3 or 5 below 1000.
 
-from timer import timer
+from timer import timed
 
 
-@timer
+@timed
 def problem_001():
     total = 0
     for i in range(1000):

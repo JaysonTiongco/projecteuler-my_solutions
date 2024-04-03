@@ -1,7 +1,7 @@
 import time
 
 
-def timer(func):
+def timed(func):
     def wrap(*args, **kwargs):
         start = time.time()
         result = func(*args, **kwargs)
