@@ -4,11 +4,17 @@
 # The sum of these multiples is 23.
 # Find the sum of all the multiples of 3 or 5 below 1000.
 
-total = 0
+from timer import timer
 
-for i in range(0, 1000):
-	if (i % 3 == 0) or (i % 5 == 0):
-		print(i)
-		total += i
 
-print("sum: " + str(total))
+@timer
+def problem_001():
+    total = 0
+    for i in range(1000):
+        if i % 3 == 0 or i % 5 == 0:
+            total += i
+    print(f"answer: {total}")
+
+
+if __name__ == "__main__":
+    problem_001()
