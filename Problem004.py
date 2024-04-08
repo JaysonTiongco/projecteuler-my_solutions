@@ -4,31 +4,23 @@
 # The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
 # Find the largest palindrome made from the product of two 3-digit numbers.
 
-import time
+from timer import timed
 
-s = time.time()
 
-num1 = 100
-num2 = 100
-prod = 0
+@timed
+def problem_004() -> int:
+    palindromes = []
 
-palindromes = []
+    for i in range(100, 1000):
+        for j in range(i, 1000):
+            product = i * j
 
-while True:
-	if num1 >= 1000:
-		num1 = 100
-		num2 += 1
-		# print(str(num2) + '/1000')
-	if num2 >= 1000:
-		break
+            # Check if palindrome
+            if str(product) == str(product)[::-1]:
+                palindromes.append(product)
 
-	prod = num1 * num2
+    return max(palindromes)
 
-	if str(prod) == str(prod)[::-1]:
-		palindromes.append(prod)
 
-	num1 += 1
-
-palindromes.sort()
-print(max(palindromes))
-print(time.time() - s)
+if __name__ == '__main__':
+    print(f"answer: {problem_004()}")
