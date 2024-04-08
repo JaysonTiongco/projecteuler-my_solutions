@@ -3,27 +3,25 @@
 # 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
 # What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 
-import time
+from timer import timed
 
-s = time.time()
 
-num = 2520
+@timed
+def problem_005() -> int:
+    num = 2520
 
-cont = False
-br = False
+    while True:
+        num += 2520
+        print(num)
+        for i in range(11, 20):
+            print(f"{num} % {i} = {num%i}")
+            if num % i != 0:
+                break
+        else:
+            break
 
-list_range = [11, 13, 14, 16, 17, 18, 19, 20]
+    return num
 
-while True:
-	cont = False
-	# print(num)
-	for i in list_range:
-		if num % i != 0:
-			num += 2520
-			cont = True
-	if cont:
-		continue
-	break
 
-print(num)
-print(time.time() - s)
+if __name__ == '__main__':
+    print(f"answer: {problem_005()}")
